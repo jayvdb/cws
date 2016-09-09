@@ -1,0 +1,13 @@
+language: php
+
+sudo: required
+
+services:
+  - docker
+
+before_install:
+- docker pull coala/base
+- docker run -d -p 127.0.0.1:80:4567 coala/base /bin/sh -c "pip install -r requirements.txt; coala-ci"
+
+script:
+  - docker ps
