@@ -1,0 +1,14 @@
+language: php
+
+dist: trusty
+sudo: required
+
+addons:
+  apt:
+    sources:
+      - debian-sid
+    packages:
+      - phpmd
+
+script:
+  - phpmd . text cleancode,codesize,controversial,design,naming,unusedcode
