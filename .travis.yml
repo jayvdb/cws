@@ -5,9 +5,5 @@ sudo: required
 services:
   - docker
 
-before_install:
-- docker pull coala/base
-- docker run -d coala/base /bin/sh -c "pip install -r requirements.txt; coala-ci"
-
 script:
-  - docker ps
+  - docker run -v $(pwd):/app -w /app coala/base:0.8 coala-ci
