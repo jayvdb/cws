@@ -4,7 +4,8 @@
 language = php
 files = **.php
 ignore = mpdf/**
-bears = CPDBear,FilenameBear,InvalidLinkBear,LineLengthBear,PHPLintBear,coalaBear
+# CPDBear is too volumous
+bears = FilenameBear,InvalidLinkBear,LineLengthBear,PHPLintBear,coalaBear
 use_spaces = False
 max_line_length = 500
 
