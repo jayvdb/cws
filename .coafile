@@ -1,0 +1,43 @@
+[Default]
+
+[PHP]
+language = php
+files = **.php
+ignore = mpdf/**
+# CPDBear is too volumous
+bears = FilenameBear,InvalidLinkBear,LineLengthBear,PHPLintBear,coalaBear
+use_spaces = False
+max_line_length = 500
+
+[PHPLineLength]
+language = php
+files = **.php
+ignore = mpdf/**,form/view/view-bia-person.php,form/se-form.php,form/se-form.php,form/bia-form.php,form/view/view-bia.php
+bears = LineCountBear
+max_lines_per_file = 500
+
+# The following have mixed whitespace
+# form/chart/*.php
+# mpdf/classes/*.php
+# mpdf/mpdfi/fpdi_pdf_parser.php
+# mpdf/mpdf.php
+# mpdf/graph.php
+# mpdf/utils/font_dump.php
+# form/dashboard.php
+
+[PHPSpaces]
+language = php
+files = mpdf/ttfontdata/*.php, mpdf/mpdfi/filters/*.php
+bears = SpaceConsistencyBear
+use_spaces = True
+allow_trailing_whitespace = True
+enforce_newline_at_EOF = False
+
+[PHPTabs]
+language = php
+files = **.php
+ignore = form/chart/*.php, mpdf/classes/*.php, mpdf/mpdfi/fpdi_pdf_parser.php, mpdf/mpdf.php, mpdf/graph.php, mpdf/utils/font_dump.php,form/dashboard.php, mpdf/mpdfi/*.php , mpdf/ttfontdata/*.php, mpdf/mpdfi/filters/*.php
+bears = SpaceConsistencyBear
+use_spaces = False
+allow_trailing_whitespace = True
+enforce_newline_at_EOF = False

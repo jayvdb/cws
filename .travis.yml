@@ -1,9 +1,20 @@
-language: php
+matrix:
+  include:
+    - language: php
+    - language: generic
+      sudo: required
+      services:
+        - docker
 
 install:
-  - pyrus install http://phptal.org/latest.tar.gz
-  - pear install pear/PHP_CodeSniffer
-  - phpenv rehash
+  - |
+    if [[ -n "$TRAVIS_PHP_VERSION" ]]; then
+      pyrus install http://phptal.org/latest.tar.gz
+      pear install pear/PHP_CodeSniffer
+      phpenv rehash
+    fi
 
 script:
-  - phpcs -p .
+  - if [[ -n "$TRAVIS_PHP_VERSION" ]]; then phpcs -p index.php inc/ form/ ; fi
+  - if [[ -z "$TRAVIS_PHP_VERSION" ]]; then docker run -v $(pwd):/app -w /app coala/base coala-ci ; fi
+
