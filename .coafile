@@ -1,3 +1,5 @@
 [Default]
-bears = CPDBear
 language = php
+files = **/*.php
+bears = CPDBear,FilenameBear,InvalidLinkBear,KeywordBear,LineCountBear,LineLengthBear,PHPLintBear,SpaceConsistencyBear,coalaBear
+
